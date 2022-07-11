@@ -53,11 +53,27 @@ public class ThirdPartyYouTubeClass implements ThirdPartyYouTubeLib {
 
         experienceNetworkLatency();
         HashMap<String, Video> hmap = new HashMap<String, Video>();
-        hmap.put("catzzzzzzzzz", new Video("sadgahasgdas", "Catzzzz.avi"));
-        hmap.put("mkafksangasj", new Video("mkafksangasj", "Dog play with ball.mp4"));
-        hmap.put("dancesvideoo", new Video("asdfas3ffasd", "Dancing video.mpq"));
-        hmap.put("dlsdk5jfslaf", new Video("dlsdk5jfslaf", "Barcelona vs RealM.mov"));
-        hmap.put("3sdfgsd1j333", new Video("3sdfgsd1j333", "Programing lesson#1.avi"));
+        //put video in hasMap with builder
+
+        //ვიდეოების ინიციალიზაცია builder-ით
+
+        //video with id and title
+        hmap.put("dancesvideoo", new Video.Builder()
+                .videoBuilderWithId("asdfas3ffasd")
+                .videoBuilderWithTitle("inception trailer.mp4").build());
+
+        //video with id,title,category and duration
+        hmap.put("dlsdk5jfslaf", new Video.Builder()
+                .videoBuilderWithId("dlsdk5jfslaf")
+                .videoBuilderWithTitle("F1 sprint highlights")
+                .videoBuilderWithCategory("sport")
+                .videoBuilderWithDuration(5).build());
+
+        //video with id,title and duration
+        hmap.put("3sdfgsd1j333", new Video.Builder()
+                .videoBuilderWithId("3sdfgsd1j333")
+                .videoBuilderWithTitle("mountain jdm drift")
+                .videoBuilderWithDuration(2).build());
 
         System.out.print("Done!" + "\n");
         return hmap;
@@ -67,7 +83,7 @@ public class ThirdPartyYouTubeClass implements ThirdPartyYouTubeLib {
         System.out.print("Downloading video... ");
 
         experienceNetworkLatency(); //ქსელის დაყოვნება
-        Video video = new Video(videoId, "Some video title");
+        Video video = new Video.Builder().videoBuilderWithId(videoId).build();
 
         System.out.print("Done!" + "\n");
         return video;

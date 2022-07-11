@@ -30,7 +30,7 @@ public class YouTubeDownloader {
         System.out.println("\n-------------------------------");
         System.out.println("Most popular videos on YouTube (imagine fancy HTML)");
         for (Video video : list.values()) {
-            System.out.println("ID: " + video.id + " / Title: " + video.title);
+            System.out.println("ID: " + video.id + " / Title: " + video.title + " / Duration: " + video.duration + " / Category: " + video.category);
         }
         System.out.println("-------------------------------\n");
     }
